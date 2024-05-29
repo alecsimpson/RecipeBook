@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Navbar from './Navbar.jsx';
 import {Outlet} from 'react-router-dom';
+import {createContext} from "react";
 
 
 export default function App() {
@@ -17,6 +18,7 @@ export default function App() {
   const [shoppingList, setShoppingList] = useState(
     ['item1', 'item2', 'item3', 'item4']
   )
+
 
 
 

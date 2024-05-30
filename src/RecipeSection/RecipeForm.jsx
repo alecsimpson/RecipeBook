@@ -6,6 +6,8 @@ export default function RecipeForm({ recipe, handleSave }){
 	const [description, setDescription] = useState(recipe.description);
 	const [ingredients, setIngredients] = useState(recipe.ingredients);
 
+
+
 	const handleIngredientChange = (index, value) => {
 		const newIngredients = [...ingredients];
 		newIngredients[index] = value;
@@ -14,7 +16,7 @@ export default function RecipeForm({ recipe, handleSave }){
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		handleSave({ name, description, ingredients });
+		handleSave({ id: recipe.id, name, description, ingredients });
 	};
 
 	return (

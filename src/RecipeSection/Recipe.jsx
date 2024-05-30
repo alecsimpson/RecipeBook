@@ -5,17 +5,15 @@ import RecipeForm from "./RecipeForm.jsx";
 export default function Recipe(
 	{
 		recipe,
+		recipes,
 		shoppingList,
 		setShoppingList,
 		editMode,
 		setEditMode,
-		setSelectedRecipe
+		setSelectedRecipe,
+		handleDelete
 	})
 {
-	const [name, setName] = useState(recipe.name);
-	const [description, setDescription] = useState(recipe.description);
-	const [ingredients, setIngredients] = useState(recipe.ingredients);
-
 
 	const handleSendToShoppingList = () => {
 		setShoppingList([...shoppingList, ...recipe.ingredients]);
@@ -24,10 +22,15 @@ export default function Recipe(
 	if (!editMode) {
 		return (
 			<div>
-				<button onClick={() => {
-					setEditMode(true)
-					setSelectedRecipe(recipe)
-				}}>Edit</button>
+				<button type='button'
+								onClick={() => {
+									setEditMode(true)
+									setSelectedRecipe(recipe)
+								}}>Edit</button>
+				<button type='button'
+								onClick={() => {
+									handleDelete(recipe)
+								}}>Delete</button>
 				<button	onClick={handleSendToShoppingList}>Send to Shopping List</button>
 				<h3>{recipe.name}</h3>
 				<p>{recipe.description}</p>

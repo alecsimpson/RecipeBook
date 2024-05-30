@@ -26,7 +26,10 @@ export default function RecipeList() {
 
  	const deleteRecipe = (recipe) => {
 		const index = recipes.findIndex((el) => el.id === recipe.id);
-
+		setRecipes([
+			...recipes.slice(0, index),
+			...recipes.slice(index + 1)
+		])
 	}
 
 	const handleSave = (updatedRecipe) => {
@@ -36,7 +39,6 @@ export default function RecipeList() {
 			updatedRecipe,
 			...recipes.slice(index + 1)
 		];
-
 		setRecipes(updatedRecipes);
 		setEditMode(false);
 	};
@@ -55,7 +57,7 @@ export default function RecipeList() {
 				<button onClick={newRecipe}>New Recipe</button>
 				<ul>
 					{recipes.map((recipe) => (
-						<li key={recipe.name}>
+						<li key={recipe.id}>
 							<Recipe
 								recipe={recipe}
 								recipes={recipes}
@@ -65,6 +67,7 @@ export default function RecipeList() {
 								editMode={editMode}
 								setEditMode={setEditMode}
 								setSelectedRecipe={setSelectedRecipe}
+								handleDelete={deleteRecipe}
 							/>
 						</li>
 					))}

@@ -1,7 +1,7 @@
-import {Component} from "react";
+import {Component, useState} from "react";
 
 
-export default function RecipeForm({ recipe, onSave, onCancel }){
+export default function RecipeForm({ recipe, handleSave }){
 	const [name, setName] = useState(recipe.name);
 	const [description, setDescription] = useState(recipe.description);
 	const [ingredients, setIngredients] = useState(recipe.ingredients);
@@ -14,12 +14,14 @@ export default function RecipeForm({ recipe, onSave, onCancel }){
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		onSave({ name, description, ingredients });
+		handleSave({ name, description, ingredients });
 	};
 
 	return (
 		<div>
 			<form onSubmit={handleSubmit}>
+				<button type='submit'>Save</button>
+				<button type='button' onClick={() => setIngredients([...ingredients, ""])}>Add Ingredient</button>
 				<label htmlFor="name">Name: </label>
 				<input
 					id="name"
@@ -43,6 +45,12 @@ export default function RecipeForm({ recipe, onSave, onCancel }){
 							value={ingredient}
 							onChange={(e) => handleIngredientChange(index, e.target.value)}
 						/>
+						<button type="button" onClick={() => {
+							setIngredients([
+								...ingredients.slice(0, index),
+								...ingredients.slice(index + 1)
+							])
+						}}>Delete Ingredient</button>
 					</div>
 				))}
 			</form>

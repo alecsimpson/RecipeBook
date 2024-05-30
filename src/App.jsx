@@ -5,12 +5,13 @@ import './App.css'
 import Navbar from './Navbar.jsx';
 import {Outlet} from 'react-router-dom';
 import {createContext} from "react";
-
+import { v4 as uuid } from 'uuid';
 
 export default function App() {
 
   const [recipes, setRecipes] = useState(
     [{
+      id: uuid(),
       name: 'Test Recipe',
       description: 'Test description',
       ingredients: ['ing1', 'ing2', 'ing3']
@@ -18,8 +19,6 @@ export default function App() {
   const [shoppingList, setShoppingList] = useState(
     ['item1', 'item2', 'item3', 'item4']
   )
-
-
 
 
   const context = {

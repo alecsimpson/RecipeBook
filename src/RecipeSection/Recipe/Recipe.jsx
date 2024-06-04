@@ -1,11 +1,11 @@
 import {useState} from "react";
-import RecipeForm from "./RecipeForm.jsx";
+import RecipeForm from "../RecipeForm.jsx";
+import styles from "./Recipe.module.css";
 
 
 export default function Recipe(
 	{
 		recipe,
-		recipes,
 		shoppingList,
 		setShoppingList,
 		editMode,
@@ -21,24 +21,25 @@ export default function Recipe(
 
 	if (!editMode) {
 		return (
-			<div>
-				<button type='button'
-								onClick={() => {
-									setEditMode(true)
-									setSelectedRecipe(recipe)
-								}}>Edit</button>
-				<button type='button'
-								onClick={() => {
-									handleDelete(recipe)
-								}}>Delete</button>
-				<button	onClick={handleSendToShoppingList}>Send to Shopping List</button>
+			<div className={styles.recipeContainer}>
 				<h3>{recipe.name}</h3>
 				<p>{recipe.description}</p>
 				<ul>
 					{recipe.ingredients.map((ingredient) => (
-						<li key={ingredient}>{ingredient}</li>
+						<li key={ingredient.id}>{ingredient.name}</li>
 					))}
 				</ul>
+				<div className={styles.buttonContainer}>
+					<button type='button'
+									onClick={() => {
+										setEditMode(true)
+										setSelectedRecipe(recipe)}}
+					>Edit</button>
+					<button type='button'
+									onClick={() => handleDelete(recipe)}
+					>Delete</button>
+					<button onClick={handleSendToShoppingList}>To Shopping List</button>
+				</div>
 			</div>
 		);
 	} else {

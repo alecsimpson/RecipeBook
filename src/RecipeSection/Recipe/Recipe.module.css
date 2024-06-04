@@ -1,0 +1,17 @@
+
+
+.recipeContainer {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    border: 1px solid grey;
+    border-radius: 5px;
+    justify-content: space-between;
+}
+
+.buttonContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 5%;
+    justify-content: space-evenly;
+}

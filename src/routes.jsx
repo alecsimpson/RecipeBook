@@ -1,4 +1,4 @@
-import RecipeList from "./RecipeSection/RecipeList.jsx";
+import RecipeList from "./RecipeSection/RecipeList/RecipeList.jsx";
 import App from "./App.jsx";
 import ShoppingList from "./ShoppingListSection/ShoppingList.jsx";
 

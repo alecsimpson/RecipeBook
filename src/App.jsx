@@ -14,10 +14,19 @@ export default function App() {
       id: uuid(),
       name: 'Test Recipe',
       description: 'Test description',
-      ingredients: ['ing1', 'ing2', 'ing3']
-    }])
+      ingredients: [
+        {id: uuid(), name: 'ing1'},
+        {id: uuid(), name: 'ing2'}
+      ],
+    }]
+  )
+
   const [shoppingList, setShoppingList] = useState(
-    ['item1', 'item2', 'item3', 'item4']
+    [
+      {id: uuid(), name: 'ingredient1'},
+      {id: uuid(), name: 'ingredient2'},
+      {id: uuid(), name: 'ingredient3'}
+    ]
   )
 
 

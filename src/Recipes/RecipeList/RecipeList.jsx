@@ -1,7 +1,7 @@
 import Recipe from "../Recipe/Recipe.jsx";
 import {useState} from "react";
 import {useOutletContext} from "react-router-dom";
-import RecipeForm from "../RecipeForm.jsx";
+import RecipeForm from "../RecipeForm/RecipeForm.jsx";
 import { v4 as uuid } from 'uuid';
 import styles from './RecipeList.module.css'
 
@@ -53,8 +53,10 @@ export default function RecipeList() {
 	} else {
 		return (
 			<div>
-				<h2>Recipes</h2>
-				<button onClick={newRecipe}>New Recipe</button>
+				<div className={styles.header}>
+					<h2>Recipes</h2>
+					<button onClick={newRecipe}>New Recipe</button>
+				</div>
 				<div className={styles.recipeListContainer}>
 						{recipes.map((recipe) => (
 							<Recipe

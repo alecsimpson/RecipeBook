@@ -18,7 +18,34 @@ export default function App() {
         {id: uuid(), name: 'ing1'},
         {id: uuid(), name: 'ing2'}
       ],
-    }]
+    },
+      {
+        id: uuid(),
+        name: 'Test Recipe',
+        description: 'Test description',
+        ingredients: [
+          {id: uuid(), name: 'ing1'},
+          {id: uuid(), name: 'ing2'}
+        ],
+      },
+      {
+        id: uuid(),
+        name: 'Test Recipe',
+        description: 'Test description',
+        ingredients: [
+          {id: uuid(), name: 'ing1'},
+          {id: uuid(), name: 'ing2'}
+        ],
+      },
+      {
+        id: uuid(),
+        name: 'Test Recipe',
+        description: 'Test description',
+        ingredients: [
+          {id: uuid(), name: 'ing1'},
+          {id: uuid(), name: 'ing2'}
+        ],
+      }]
   )
 
   const [shoppingList, setShoppingList] = useState(

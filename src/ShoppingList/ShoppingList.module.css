@@ -1,0 +1,29 @@
+
+.ingredientList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1em;
+}
+
+.ingredient {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 5px;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.ingredient:hover {
+    background-color: #f5f5f5;
+}
+
+.ingredient.checked {
+    background-color: #dddddd;
+    text-decoration: line-through;
+}
+

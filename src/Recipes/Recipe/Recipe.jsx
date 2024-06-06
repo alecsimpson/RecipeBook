@@ -1,5 +1,5 @@
 import {useState} from "react";
-import RecipeForm from "../RecipeForm.jsx";
+import RecipeForm from "../RecipeForm/RecipeForm.jsx";
 import styles from "./Recipe.module.css";
 
 

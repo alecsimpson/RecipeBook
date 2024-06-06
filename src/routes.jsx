@@ -1,6 +1,6 @@
-import RecipeList from "./RecipeSection/RecipeList/RecipeList.jsx";
+import RecipeList from "./Recipes/RecipeList/RecipeList.jsx";
 import App from "./App.jsx";
-import ShoppingList from "./ShoppingListSection/ShoppingList.jsx";
+import ShoppingList from "./ShoppingList/ShoppingList.jsx";
 
 
 export const routes = [

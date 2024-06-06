@@ -1,4 +1,4 @@
-import {Component, useState} from "react";
+import {useState} from "react";
 
 
 export default function RecipeForm({ recipe, handleSave }){
@@ -10,7 +10,7 @@ export default function RecipeForm({ recipe, handleSave }){
 
 	const handleIngredientChange = (index, value) => {
 		const newIngredients = [...ingredients];
-		newIngredients[index] = value;
+		newIngredients[index] = {id: ingredients[index].id, name: value};
 		setIngredients(newIngredients);
 	};
 
@@ -44,7 +44,7 @@ export default function RecipeForm({ recipe, handleSave }){
 						<input
 							id={`ingredient-${index}`}
 							type="text"
-							value={ingredient}
+							value={ingredient.name}
 							onChange={(e) => handleIngredientChange(index, e.target.value)}
 						/>
 						<button type="button" onClick={() => {

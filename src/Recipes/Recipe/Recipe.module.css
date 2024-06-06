@@ -3,13 +3,14 @@
 .recipeContainer {
     display: flex;
     flex-direction: column;
-    width: 25%;
+    width: 200px;
     border: 1px solid grey;
     border-radius: 5px;
     justify-content: space-between;
 }
 
 .buttonContainer {
+    width: 200px;
     display: flex;
     flex-direction: row;
     gap: 5%;

@@ -17,9 +17,10 @@ export default function ShoppingList() {
 	}
 
 	function handleIngredientClick(e) {
-		console.log(e)
 		e.target.classList.toggle(styles.checked)
 	}
+
+	shoppingList.forEach(item => console.log(item))
 
 	return (
 		<div className="shoppingList">

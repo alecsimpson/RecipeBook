@@ -1,4 +1,5 @@
 import {useState} from "react";
+import { v4 as uuid } from 'uuid';
 
 
 export default function RecipeForm({ recipe, handleSave }){
@@ -10,7 +11,7 @@ export default function RecipeForm({ recipe, handleSave }){
 
 	const handleIngredientChange = (index, value) => {
 		const newIngredients = [...ingredients];
-		newIngredients[index] = {id: ingredients[index].id, name: value};
+		newIngredients[index] = {...ingredients[index], name: value};
 		setIngredients(newIngredients);
 	};
 
@@ -23,7 +24,7 @@ export default function RecipeForm({ recipe, handleSave }){
 		<div>
 			<form onSubmit={handleSubmit}>
 				<button type='submit'>Save</button>
-				<button type='button' onClick={() => setIngredients([...ingredients, ""])}>Add Ingredient</button>
+				<button type='button' onClick={() => setIngredients([...ingredients, {id: uuid(), name: ""}])}>Add Ingredient</button>
 				<label htmlFor="name">Name: </label>
 				<input
 					id="name"
@@ -48,10 +49,9 @@ export default function RecipeForm({ recipe, handleSave }){
 							onChange={(e) => handleIngredientChange(index, e.target.value)}
 						/>
 						<button type="button" onClick={() => {
-							setIngredients([
-								...ingredients.slice(0, index),
-								...ingredients.slice(index + 1)
-							])
+							setIngredients(
+								ingredients.filter(ing => ing.id !== ingredient.id)
+							)
 						}}>Delete Ingredient</button>
 					</div>
 				))}

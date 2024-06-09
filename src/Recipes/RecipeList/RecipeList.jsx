@@ -26,11 +26,7 @@ export default function RecipeList() {
 	}
 
  	const deleteRecipe = (recipe) => {
-		const index = recipes.findIndex((el) => el.id === recipe.id);
-		setRecipes([
-			...recipes.slice(0, index),
-			...recipes.slice(index + 1)
-		])
+		setRecipes(recipes.filter(el => el.id !== recipe.id));
 	}
 
 	const handleSave = (updatedRecipe) => {

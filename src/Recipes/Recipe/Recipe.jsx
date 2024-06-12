@@ -1,46 +1,68 @@
-import {useState} from "react";
 import RecipeForm from "../RecipeForm/RecipeForm.jsx";
-import styles from "./Recipe.module.css";
-
+import { Card, CardContent, Typography, Button, List, ListItem, Box } from '@mui/material';
 
 export default function Recipe(
 	{
-		recipe,
-		shoppingList,
-		setShoppingList,
-		editMode,
-		setEditMode,
-		setSelectedRecipe,
-		handleDelete
+		 recipe,
+		 shoppingList,
+		 setShoppingList,
+		 editMode,
+		 setEditMode,
+		 setSelectedRecipe,
+		 handleDelete
 	})
 {
 
 	const handleSendToShoppingList = () => {
 		setShoppingList([...shoppingList, ...recipe.ingredients]);
-	}
+	};
 
 	if (!editMode) {
 		return (
-			<div className={styles.recipeContainer}>
-				<h3>{recipe.name}</h3>
-				<p>{recipe.description}</p>
-				<ul>
-					{recipe.ingredients.map((ingredient) => (
-						<li key={ingredient.id}>{ingredient.name}</li>
-					))}
-				</ul>
-				<div className={styles.buttonContainer}>
-					<button type='button'
-									onClick={() => {
-										setEditMode(true)
-										setSelectedRecipe(recipe)}}
-					>Edit</button>
-					<button type='button'
-									onClick={() => handleDelete(recipe)}
-					>Delete</button>
-					<button onClick={handleSendToShoppingList}>To Shopping List</button>
-				</div>
-			</div>
+			<Card>
+				<CardContent>
+					<Typography variant="h5">{recipe.name}</Typography>
+					<Typography variant="body2" color="textSecondary" paragraph>
+						{recipe.description}
+					</Typography>
+					<List>
+						{recipe.ingredients.map((ingredient) => (
+							<ListItem key={ingredient.id}>
+								<Typography variant="body1">{ingredient.name}</Typography>
+							</ListItem>
+						))}
+					</List>
+					<Box
+						display="flex"
+						justifyContent="flex-end"
+						gap="2%"
+						mt={2}>
+						<Button
+							variant="contained"
+							color="primary"
+							onClick={() => {
+								setEditMode(true);
+								setSelectedRecipe(recipe);
+							}}
+						>
+							Edit
+						</Button>
+						<Button
+							variant="contained"
+							color="secondary"
+							onClick={() => handleDelete(recipe)}
+						>
+							Delete
+						</Button>
+						<Button
+							variant="contained"
+							onClick={handleSendToShoppingList}
+						>
+							To Shopping List
+						</Button>
+					</Box>
+				</CardContent>
+			</Card>
 		);
 	} else {
 		return (

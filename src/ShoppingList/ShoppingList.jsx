@@ -23,15 +23,30 @@ export default function ShoppingList() {
 	shoppingList.forEach(item => console.log(item))
 
 	return (
-		<div className="shoppingList">
+		<div className={styles.shoppingList}>
 			<h2>Shopping List</h2>
-			<button onClick={() => setShoppingList([])}>Clear</button>
 			<form onSubmit={handleAdd}>
 				<label htmlFor="newIngredient">New Ingredient:</label>
 				<input id="newIngredient" name="newIngredient" type="text"/>
-				<button type="submit">Add</button>
+				<button
+					className="add btn"
+					type="submit">Add</button>
 			</form>
 			<div className={styles.ingredientList}>
+				{shoppingList.length > 0
+					?
+					<>
+						<button
+							className="clear btn"
+							onClick={() => setShoppingList([])}>Clear
+						</button>
+						<hr/>
+					</>
+					:
+					<>
+						<p>Add some ingredients!</p>
+					</>
+				}
 				{shoppingList.map((item) => {
 					return (
 						<div key={item.id}

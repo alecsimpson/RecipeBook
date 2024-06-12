@@ -1,11 +1,39 @@
 
+button {
+    border: none;
+    color: white;
+    background-color: #267c43;
+    border-radius: 3px;
+}
+
+hr {
+    margin: 0.25em;
+    width: 95%;
+    height: 0;
+    border-style: solid;
+    color: grey;
+}
+
+
+.shoppingList {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1em;
+    align-items: center;
+}
+
 .ingredientList {
+    border: 1px grey solid;
+    border-radius: 5px;
     display: flex;
     flex-direction: column;
     gap: 0.5em;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
-    padding-top: 1em;
+    padding: 1em;
+    height: 100%;
+    width: 50%;
 }
 
 .ingredient {
@@ -13,9 +41,11 @@
     grid-template-columns: 4fr 1fr;
     border: 1px solid grey;
     border-radius: 5px;
-    padding: 5px;
+    height: 2em;
     width: 50%;
     margin: 0 auto;
+    align-items: center;
+    padding: 0.5em;
 }
 
 .ingredient:hover {
@@ -26,4 +56,6 @@
     background-color: #dddddd;
     text-decoration: line-through;
 }
+
+
 
